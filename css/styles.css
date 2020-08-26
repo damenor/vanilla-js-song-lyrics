@@ -10,6 +10,19 @@
   outline: none;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #666; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666; 
+}
+
 body {
   width: 100%;
   min-height: 100vh;
