@@ -1,11 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans&display=swap');
 
 * {
   box-sizing: border-box;
   margin: 0;
-  font-family: 'Russo One', sans-serif;
-  font-family: 'Do Hyeon', sans-serif;
   font-family: 'Bangers', cursive;
 }
 
@@ -36,6 +33,10 @@ button {
   font-size: 64px;
 }
 
+#button-search:disabled{
+  color: #333;
+}
+
 #button-search-toggle{
   font-size: 48px;
 }
@@ -49,9 +50,10 @@ button {
 
 #navbar {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 32px;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #333;
 }
 
 #navbar__title {
@@ -60,6 +62,21 @@ button {
   font-size: 64px;
   text-transform: uppercase;
   animation: .4s fadeIn;
+}
+
+#title-song, #title-artist{
+  color: #666;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#title-artist{
+  font-family: 'Open Sans', sans-serif;
+}
+
+#title-song{
+  margin-top: 16px;
+  font-size: 64px;
 }
 
 #container {}

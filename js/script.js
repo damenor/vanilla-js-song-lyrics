@@ -1,8 +1,13 @@
+const titleArtist = document.getElementById('title-artist')
+const titleSong = document.getElementById('title-song')
+
 const divContainerSearch = document.getElementById('container__search')
 const divContainerLyric = document.getElementById('container__lyric')
+
 const buttonSearch = document.getElementById('button-search')
 const buttonSearchClose = document.getElementById('button-search-close')
 const buttonSearchToggle = document.getElementById('button-search-toggle')
+
 const inputArtist = document.getElementById('input-artist')
 const inputSong = document.getElementById('input-song')
 
@@ -29,7 +34,17 @@ const fetchSong = (artist, songTitle) => {
   fetch(url)
     .then(res => res.json())
     .then(data => {
-      if (data.error) return console.error(data.error)
+      inputArtist.value = ''
+      inputSong.value = ''
+      if (data.error || data.lyrics === '') {
+        titleSong.textContent = 'UPS!!'
+        titleArtist.textContent = 'We did not find any song with that title or artist'
+        divContainerLyric.innerHTML = ''
+        divContainerSearch.classList.remove('show')
+        return
+      }
+      titleArtist.textContent = artist
+      titleSong.textContent = songTitle
       divContainerLyric.innerHTML = data.lyrics
       divContainerSearch.classList.remove('show')
     })
